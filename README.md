@@ -21,9 +21,11 @@ Run the following command in the root directory of your project:
 
 ```git submodule add https://github.com/clod986/cra-compliance-toolkit.git .cra-tools```
 
-### **Step 2: Create the Configuration File**
+### **Step 2: Create the Configuration File (Optional)**
 
 Create a cra-config.json file in the root of your project to explicitly declare the software manufacturer (required by CRA):
+
+*Note: This step is optional. If skipped, the toolkit will automatically attempt to extract these metadata from your `package.json`, `composer.json`, or Git configuration.*
 ```
 {  
   "name": "my-project-name",  
@@ -35,9 +37,11 @@ Create a cra-config.json file in the root of your project to explicitly declare 
 }
 ```
 
-### **Step 3: Automate via Package Manager**
+### **Step 3: Automate via Package Manager (Optional)**
 
 To ensure the SBOM is generated automatically every time dependencies change, add the script to your package manager's post-install hooks.
+
+*Note: This is highly recommended for full automation, but if you prefer to rely solely on AI commands or manual execution, you can skip this.*
 
 **For PHP (Composer):**
 
@@ -60,6 +64,16 @@ Add this to your `package.json`:
     "postinstall": "python .cra-tools/sbom_generator.py"  
 }
 ```
+
+## **🛠️ Manual Execution (CLI)**
+
+If you prefer to run the compliance check manually without relying on AI agents or package manager hooks, you can execute the script directly from your terminal at any time:
+
+```python .cra-tools/sbom_generator.py```
+
+
+The script will immediately scan your lockfiles and generate an updated `sbom-[project-name].json` file in your root directory.
+
 ## **🤖 AI Agent Integration**
 
 This toolkit is designed to turn your AI coding assistants into **Compliance Officers**. We use a single, unified ruleset (`ai_compliance_rules.md`) that works across all major AI assistants.
