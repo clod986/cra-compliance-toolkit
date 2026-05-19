@@ -19,7 +19,7 @@ The best way to integrate this toolkit into your existing projects while staying
 
 Run the following command in the root directory of your project:
 
-git submodule add \[https://github.com/clod986/cra-compliance-toolkit.git\](https://github.com/clod986/cra-compliance-toolkit.git) .cra-tools
+```git submodule add https://github.com/clod986/cra-compliance-toolkit.git .cra-tools```
 
 ### **Step 2: Create the Configuration File**
 
