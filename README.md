@@ -24,15 +24,16 @@ Run the following command in the root directory of your project:
 ### **Step 2: Create the Configuration File**
 
 Create a cra-config.json file in the root of your project to explicitly declare the software manufacturer (required by CRA):
-
+```
 {  
   "name": "my-project-name",  
   "publisher": "My Company Ltd.",  
-  "authors": \[  
+  "authors": [  
     "Developer Name 1",  
     "Developer Name 2"  
-  \]  
+  ]  
 }
+```
 
 ### **Step 3: Automate via Package Manager**
 
@@ -40,37 +41,38 @@ To ensure the SBOM is generated automatically every time dependencies change, ad
 
 **For PHP (Composer):**
 
-Add this to your composer.json:
-
+Add this to your `composer.json`:
+```
 "scripts": {  
-    "post-install-cmd": \[  
-        "python .cra-tools/sbom\_generator.py"  
-    \],  
-    "post-update-cmd": \[  
-        "python .cra-tools/sbom\_generator.py"  
-    \]  
+    "post-install-cmd": [  
+        "python .cra-tools/sbom_generator.py"  
+    ],  
+    "post-update-cmd": [  
+        "python .cra-tools/sbom_generator.py"  
+    ]  
 }
-
+```
 **For Node.js (npm):**
 
-Add this to your package.json:
-
+Add this to your `package.json`:
+```
 "scripts": {  
-    "postinstall": "python .cra-tools/sbom\_generator.py"  
+    "postinstall": "python .cra-tools/sbom_generator.py"  
 }
-
+```
 ## **🤖 AI Agent Integration**
 
-This toolkit is designed to turn your AI coding assistants into **Compliance Officers**. We use a single, unified ruleset (ai\_compliance\_rules.md) that works across all major AI assistants.
+This toolkit is designed to turn your AI coding assistants into **Compliance Officers**. We use a single, unified ruleset (`ai_compliance_rules.md`) that works across all major AI assistants.
 
-* **GitHub Copilot / VS Code:** Copy the file ai\_compliance\_rules.md from the .cra-tools/ folder to .github/copilot-instructions.md in your project's root.  
-* **Claude Code:** Copy the file ai\_compliance\_rules.md from the .cra-tools/ folder to CLAUDE.md in your project's root.  
-* **Cursor IDE:** Copy the content of ai\_compliance\_rules.md directly into your .cursorrules file in your project's root.
+* **GitHub Copilot / VS Code:** Copy the file `ai_compliance_rules.md` from the `.cra-tools/` folder to `.github/copilot-instructions.md` in your project's root.  
+* **Claude Code:** Copy the file `ai_compliance_rules.md` from the `.cra-tools/` folder to `CLAUDE.md` in your project's root.  
+* **Cursor IDE:** Copy the content of `ai_compliance_rules.md` directly into your `.cursorrules` file in your project's root.
 
-Once copied, simply type /sbom in your AI chat, or ask it to install a new library. The AI will automatically know how to run the compliance checks\!
+Once copied, simply type `/sbom` in your AI chat, or ask it to install a new library. The AI will automatically know how to run the compliance checks\!
 
 ## **🔄 Updating the Toolkit**
 
 When new CRA regulations are introduced, simply pull the latest changes across all your projects by running:
-
-git submodule update \--remote  
+```
+git submodule update --remote  
+```
